@@ -68,3 +68,4 @@ project
 * test
 * encapsulate biz
 * app client example(like webpack+react+mobx)
+* other...
