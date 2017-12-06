@@ -1,0 +1,13 @@
+.project/
+.vscode/
+.idea/
+.phpintel/
+.DS_Store
+npm-debug.log
+node_modules/
+/report/*
+deployment-config.json
+
+/var/log/*
+!/var/log/.gitkeep
+/src/Config/parameters.js

@@ -1,0 +1,21 @@
+"use strict";
+
+let parameters = {
+  app: {
+    env: "dev",
+    port: 5000
+  },
+  mongodb: {
+    user: '',
+    pass: '',
+    host: '127.0.0.1',
+    port: 27017,
+    database: 'biz-nodejs-starter'
+  },
+  redis: {
+    host: '127.0.0.1',
+    port: 6379
+  }
+};
+
+export default parameters;

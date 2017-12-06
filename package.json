@@ -1,0 +1,59 @@
+{
+  "name": "biz-nodejs-starter",
+  "version": "0.0.1",
+  "description": "make your nodejs app easier to start and extend",
+  "main": "server.js",
+  "keywords": [
+    "biz",
+    "biz framework",
+    "dependency injection",
+    "nodejs starter",
+    "koa2",
+    "bottlejs",
+    "mongoose"
+  ],
+  "author": "i@wuqian.me",
+  "license": "MIT",
+  "dependencies": {
+    "bottlejs": "1.6.2",
+    "fast-csv": "2.4.1",
+    "fivebeans": "1.5.0",
+    "glob": "7.1.2",
+    "kcors": "2.2.1",
+    "koa": "2.4.1",
+    "koa-bodyparser": "4.2.0",
+    "koa-compose": "4.0.0",
+    "koa-json-error": "3.1.2",
+    "koa-ratelimit": "4.0.0",
+    "koa-router": "7.3.0",
+    "moment": "2.19.2",
+    "mongoose": "4.13.4",
+    "path": "0.12.7",
+    "pinyin": "2.8.3",
+    "prompt": "1.0.0",
+    "request": "2.83.0",
+    "winston": "2.4.0",
+    "winston-daily-rotate-file": "1.7.2",
+    "yargs": "10.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-plugin-module-resolver": "3.0.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-stage-0": "6.24.1",
+    "colors": "1.1.2",
+    "koa-logger": "3.1.0",
+    "mocha": "4.0.1",
+    "mochawesome": "2.3.1",
+    "nodemon": "1.12.1",
+    "supertest": "3.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "mocha --compilers js:babel-core/register --require babel-polyfill",
+    "report": "mocha --compilers js:babel-core/register --require babel-polyfill --reporter mochawesome",
+    "cmd": "node_modules/.bin/babel-node src/command.js"
+  }
+}
