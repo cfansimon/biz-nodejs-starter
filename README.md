@@ -34,33 +34,33 @@ npm run report
 ```
 project
 |-src
-|  |-Biz (magic place)
-|  |  |-YourModuleA
+|  |-Biz                                   # Organize all your business logic code here
+|  |  |-YourModuleA                        # A business mudule
 |  |  |  |-Dao
-|  |  |  |  |-YourModuleADaoA.js
+|  |  |  |  |-YourModuleADaoA.js           # A dao class
 |  |  |  |-Service
-|  |  |  |  |-YourModuleAServiceA.js
+|  |  |  |  |-YourModuleAServiceA.js       # A service class
 |  |  |-YourModuleB
 |  |  |  |-Dao
 |  |  |  |  |-YourModuleBDaoA.js
 |  |  |  |-Service
 |  |  |  |  |-YourModuleBServiceA.js
-|  |  DefaultServiceProvider.js (where to register a component that need to injection biz instance)
+|  |  DefaultServiceProvider.js            # Where to register a component that need to injection biz instance
 |  |-Command
-|  |  |-YourCommandA.js (it can be runned by `npm run cmd YourCommandA`)
+|  |  |-YourCommandA.js                    # It can be runned by `npm run cmd YourCommandA`
 |  |-Component
-|  |  |-YourComponent
+|  |  |-YourComponent                      # Place components like `api clients`,`csv parser`,`OAuth clients`
 |  |-Config
-|  |  |-parameters.js (copy and modify from parameters.js)
-|  |  |-routing.js (place your route maps for koa2)
-|  |-Lisenter (place your request lisenter)
-|  |-Resource (place your api controller function)
+|  |  |-parameters.js                      # It contains db config, etc. Copy and modify from parameters.js.dist
+|  |  |-routing.js                         # Place your route maps for koa2
+|  |-Lisenter                              # Place your request lisenter, like `accesstoken verifier`
+|  |-Resource                              # Place your api controller function in restful style
 |-test
-|  |-Biz (test for biz service)
+|  |-Biz                                   # Tests for biz service
 |  |  |-YourModuleA
 |  |  |  |-YourModuleAServiceATest.js
-|  |-Api (test for Resource)
-|-var (for cache and log, etc.)
+|  |-Api                                   # Tests for Resource
+|-var                                      # For cache and log, etc
 ```
 
 ## RoadMap
