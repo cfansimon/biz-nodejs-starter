@@ -15,14 +15,14 @@ export default class ObjectUtil {
     return true;
   }
 
-  static index(obj, name) {
+  static index(array, name) {
     let indexedMap = {};
 
-    if (this.isEmpty(obj)) {
+    if (array.length == 0) {
       return indexedMap;
     }
 
-    for (let item in obj) {
+    for (let item of array) {
       if (item.hasOwnProperty(name)) {
         indexedMap[item[name]] = item;
       }
@@ -31,15 +31,15 @@ export default class ObjectUtil {
     return indexedMap;
   }
 
-  static column(obj, columnName) {
+  static column(array, columnName) {
 
     let column = [];
 
-    if (this.isEmpty(obj)) {
+    if (array.length == 0) {
       return column;
     }
 
-    for (let item in obj) {
+    for (let item of array) {
       if (item.hasOwnProperty(columnName)) {
         column.push(item[columnName]);
       }
