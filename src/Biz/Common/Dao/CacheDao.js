@@ -12,7 +12,7 @@ let CacheSchema = mongoose.Schema({
   expired_time: { type: Number, default: 0 },
   created_time: { type: Number, default: moment().unix() },
   updated_time: { type: Number, default: moment().unix() }
-});
+}, { versionKey: false });
 
 CacheSchema.index({name: 1}, {unique: true});
 

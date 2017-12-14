@@ -3,7 +3,7 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 
-let AppDao = mongoose.Schema({
+let AppSchema = mongoose.Schema({
   name: { type: String, required: true},
   code: { type: String, required: true},
   app_key: { type: String, required: true },
@@ -13,9 +13,9 @@ let AppDao = mongoose.Schema({
   status: {type: Number, default: 0},
   created_time: { type: Number, default: moment().unix() },
   updated_time: { type: Number, default: moment().unix() }
-});
+}, { versionKey: false });
 
-AppDao.index({code: 1}, {unique: true});
-AppDao.index({app_key: 1}, {unique: true});
+AppSchema.index({code: 1}, {unique: true});
+AppSchema.index({app_key: 1}, {unique: true});
 
-export default AppDao;
+export default AppSchema;

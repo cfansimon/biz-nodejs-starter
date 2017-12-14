@@ -36,4 +36,7 @@ if (typeof classMap[execCommand] == 'undefined') {
 }
 
 let command = new classMap[execCommand](biz);
-command.run();
+(async () => {
+  await command.run(argv._);
+  process.exit();
+})();
