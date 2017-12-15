@@ -36,7 +36,7 @@ npm run test:report
 
 ## Coding
 
-### Structure You May Concern
+### Structure You Should Concern
 
 ```
 project
@@ -52,7 +52,7 @@ project
 |  |  |  |  |-YourModuleBDaoA.js
 |  |  |  |-Service
 |  |  |  |  |-YourModuleBServiceA.js
-|  |  DefaultServiceProvider.js            # Where to register a component that need to injection biz instance
+|  |  DefaultServiceProvider.js            # Where to register a component that need to inject biz instance
 |  |-Command
 |  |  |-YourCommandA.js                    # It can be runned by `npm run cmd YourCommandA`
 |  |-Component
