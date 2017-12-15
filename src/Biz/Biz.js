@@ -2,25 +2,30 @@
 
 import Bottle from 'bottlejs';
 import Scanner from 'Biz/Scanner';
-import mongoose from 'Biz/mongoose';
+import Mongoose from 'Biz/Mongoose';
 import LoggerUtil from 'Common/LoggerUtil';
 
 export default class Biz {
   
   constructor(config) {
-    
+
+    this.logger = LoggerUtil.create('biz');
     this.bottle = new Bottle();
-    Scanner.scanServices().forEach(cfg => {
+    this.mongoose = new Mongoose(config.mongodb);
+
+    Scanner.scanServices(config.app.root_path).forEach(cfg => {
       this.bottle.factory(cfg[0], (container) => {
         return new cfg[1](this);
       });
     });
 
+    Scanner.scanDaos(config.app.root_path).forEach(cfg => {
+      this.mongoose.setModel(cfg[0], cfg[1]);
+    });
+
     for (let key in config) {
       this[key] = config[key];
     }
-
-    this.logger = LoggerUtil.create('biz');
   }
 
   get(name) {
@@ -54,6 +59,10 @@ export default class Biz {
 
   dao(name) {
     name = name.substr(0, name.length - 'Dao'.length);
-    return mongoose.model(name);
+    return this.mongoose.getModel(name);
+  }
+
+  db() {
+    return this.mongoose.getConnection();
   }
 }

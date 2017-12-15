@@ -1,12 +1,11 @@
 "use strict";
 
 import glob from 'glob';
-import bizConfig from 'Config/biz';
 
 export default class Scanner {
 
-  static scanServices() {
-    let bizPath = bizConfig.app.root_path + '/src/Biz/';
+  static scanServices(rootPath) {
+    let bizPath = rootPath + '/src/Biz/';
     let serviceFiles = glob.sync(bizPath + "*/Service/*.js");
 
     let services = [];
@@ -19,8 +18,8 @@ export default class Scanner {
     return services;
   }
 
-  static scanDaos() {
-    let bizPath = bizConfig.app.root_path + '/src/Biz/';
+  static scanDaos(rootPath) {
+    let bizPath = rootPath + '/src/Biz/';
     let DaoFiles = glob.sync(bizPath + "*/Dao/*.js");
 
     let daos = [];

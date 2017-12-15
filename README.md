@@ -24,7 +24,7 @@ npm run cmd
 npm run test
 
 # Generate test report
-npm run report
+npm run test:report
 ```
 
 ## Coding
@@ -65,7 +65,6 @@ project
 
 ## RoadMap
 
-* test
 * encapsulate biz
 * app client example(like webpack+react+mobx)
 * other...
