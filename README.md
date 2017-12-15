@@ -9,6 +9,13 @@ koa2、bottlejs、mongoose
 ## Easy Usage
 
 ```bash
+# Install nodejs >= 8.9.3
+https://nodejs.org/en/download
+
+# Install mongodb >= 3.4
+https://www.mongodb.com/download-center#community
+
+# Install modules
 npm i
 
 # Start application, default to http://127.0.0.1:5000
@@ -17,7 +24,7 @@ npm run dev
 # Run command
 npm run cmd CommandName
 
-# list available command
+# List available command
 npm run cmd
 
 # Run test cases
