@@ -18,8 +18,7 @@ let biz = new Biz(bizConfig);
 biz.register(new DefaultServiceProvider());
 
 app.use(listener(biz));
-app.use(routes());
-app.context.biz = biz;
+app.use(routes(biz));
 app.context.logger = logger;
 
 app.listen(bizConfig.app.port);

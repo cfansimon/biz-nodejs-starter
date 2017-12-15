@@ -1,8 +1,16 @@
 'use strict';
 
-export default class RequestUtil {
+export default class BaseResource {
 
-  static extractSort(query) {
+  constructor(biz) {
+    this.biz = biz;
+  }
+
+  createService(name) {
+    return this.biz.service(name);
+  }
+
+  extractSort(query) {
 
     let sort = {};
 
@@ -15,7 +23,7 @@ export default class RequestUtil {
     return sort;
   }
 
-  static extractStartLimit(query) {
+  extractStartLimit(query) {
 
     let start = parseInt(query['start']) || 0;
     let limit = parseInt(query['limit']) || 20;
@@ -23,7 +31,7 @@ export default class RequestUtil {
     return {start, limit}
   }
 
-  static extractConditions(conditions) {
+  extractConditions(conditions) {
 
     let filters = ['start', 'limit', 'sort_key', 'sort_type'];
 
@@ -53,5 +61,22 @@ export default class RequestUtil {
 
     }
     return extracted;
+  }
+
+  createResourceResponse(resource) {
+    return {
+      errcode: 0,
+      errmsg: '',
+      resource: resource,
+    };
+  }
+
+  createResourcesResponse(resources, total) {
+    return {
+      errcode: 0,
+      errmsg: '',
+      resources: resources,
+      total: total ? total : 0,
+    };
   }
 }

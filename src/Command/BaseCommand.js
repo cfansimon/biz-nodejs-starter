@@ -9,5 +9,4 @@ export default class BaseCommand {
   createService(name) {
     return this.biz.service(name);
   }
-
 }

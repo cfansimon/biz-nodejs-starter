@@ -1,15 +1,14 @@
 'use strict';
 
-import ResponseUtil from 'Common/ResponseUtil';
+import BaseResource from './BaseResource';
 
-const Index = {
+export default class Index extends BaseResource {
 
-  get: async (ctx, next) => {
-    ctx.body = ResponseUtil.createResourceResponse({
+  async get(ctx, next) {
+    // ctx.throw(1001, 'Benzuo Stock Api');
+    ctx.body = this.createResourceResponse({
       name: 'benzuo stock data center',
       version: '1.0.0'
     });
   }
-};
-
-export default Index;
+}

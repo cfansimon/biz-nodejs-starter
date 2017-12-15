@@ -4,13 +4,19 @@ import compose from 'koa-compose';
 import Router from 'koa-router';
 import routing from 'Config/routing';
 
-const router = new Router();
+export default function routes(biz) {
 
-routing.forEach(cfg => {
-  router[cfg[0].toLowerCase()](cfg[1], cfg[2]);
-});
+  const router = new Router();
 
-export default function routes() {
+  routing.forEach(cfg => {
+    let resource = new cfg[0](biz);
+    let routing = cfg[1];
+
+    for (let method in routing) {
+      router[method](routing[method], resource[method].bind(resource));
+    }
+  });
+
   return compose([
     router.routes(),
     router.allowedMethods()

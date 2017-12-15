@@ -1,22 +1,23 @@
 'use strict';
 
+import BaseResource from './BaseResource';
 import ObjectUtil from 'Common/ObjectUtil';
-import ResponseUtil from 'Common/ResponseUtil';
 
-const AccessToken = {
+export default class AccessToken extends BaseResource {
 
-  get: async (ctx, next) => {
-
+  async get(ctx, next) {
+    
     let query = ctx.request.query;
     if (!ObjectUtil.requires(query, ['app_key', 'app_secret'])) {
       ctx.throw('Miss required parameters');
     }
 
-    let appService = ctx.biz.service('App.AppService');
-    let accessToken = await appService.getAccessToken(query.app_key, query.app_secret);
-
-    ctx.body = ResponseUtil.createResourceResponse(accessToken);
+    let accessToken = await this.getAppService().getAccessToken(query.app_key, query.app_secret);
+  
+    ctx.body = this.createResourceResponse(accessToken);
   }
-};
 
-export default AccessToken;
+  getAppService() {
+    return this.createService('App.AppService');
+  }
+}
