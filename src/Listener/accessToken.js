@@ -13,7 +13,7 @@ export default function accessToken(biz) {
         throw new Error('Missing app key or access token');
       }
 
-      let appService = ctx.biz.service('App.AppService');
+      let appService = biz.service('App.AppService');
       await appService.verifyAccessToken(xAppKey, xAccessToken);
     }
 
